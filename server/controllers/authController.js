@@ -9,6 +9,7 @@ const bcrypt = require("bcryptjs");
 
 // SignUp
 const signup = async (req, res) => {
+  console.log('recieved')
   let type = req.params.type.toLowerCase();
   try {
     let Model = authModelSelector(type, res);
@@ -20,24 +21,26 @@ const signup = async (req, res) => {
 
     let result = await data.save();
 
-    const isMailSentSuccessful = await saveAndSendVerficationToken(
-      result._id.toString(),
-      type,
-      req.get("Origin")
-    );
-    if (isMailSentSuccessful) {
-      return res.status(200).send({
-        message: `${capitalizeFirstLetter(
-          type
-        )} account created, please verify your email to login`,
-      });
-    } else {
-      return res.status(200).send({
-        message: `${capitalizeFirstLetter(
-          type
-        )} account created. However, we couldn't send the verification link. You can verify your account during login.`,
-      });
-    }
+    return res.status(200).send({
+      message: `${capitalizeFirstLetter(
+        type
+      )} account created. However, we couldn't send the verification link. You can verify your account during login.`,
+    });
+
+  //   const isMailSentSuccessful = await saveAndSendVerficationToken(
+  //     result._id.toString(),
+  //     type,
+  //     req.get("Origin")
+  //   );
+  //   if (isMailSentSuccessful) {
+  //     return res.status(200).send({
+  //       message: `${capitalizeFirstLetter(
+  //         type
+  //       )} account created, please verify your email to login`,
+  //     });
+  //   } else {
+      
+  //  }
   } catch (error) {
     if (error.code === 11000) {
       if (error.keyPattern.email || error.keyPattern.contact) {
