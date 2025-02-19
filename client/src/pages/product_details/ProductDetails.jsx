@@ -195,7 +195,7 @@ function ProductDetails() {
               ) : (
                 <div className="flex justify-between">
                   <h2 className="text-2xl md:text-4xl text-left mb-1 font-medium">
-                    Rs. {productDashboardData?.pricePerUnit}/
+                    N {productDashboardData?.pricePerUnit}/
                     {productDashboardData?.measuringUnit}
                   </h2>
                 </div>

@@ -33,8 +33,8 @@ function LoginAndSignup() {
     if (isSignInForm) {
       setFormData((prevData) => ({
         ...prevData,
-        email: "",
-        password: "",
+        email: "jaloh53056@jahsec.com",
+        password: "12345678",
       }));
     } else {
       setFormData((prevData) => ({ ...prevData, email: "", password: "" }));

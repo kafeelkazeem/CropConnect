@@ -162,7 +162,7 @@ function SellerProducts() {
                       {item.measuringUnit}
                     </td>
                     <td className=" px-6 py-4 max-w-sm truncate hover:whitespace-normal">
-                      Rs. {item.pricePerUnit}/{item.measuringUnit}
+                      N{item.pricePerUnit}/{item.measuringUnit}
                     </td>
                     <td className=" px-6 py-4 max-w-sm truncate hover:whitespace-normal">
                       {item.description}
